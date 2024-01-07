@@ -11,15 +11,24 @@ class DataTransform:
             df['int_rate'] = df['int_rate'].fillna(df['int_rate'].median())
             return(df)
     @staticmethod
+    def conv_to_integer(df,column):
+        column=df['funded_amount']
+        for column in df:
+            #df['funded_amount']=df['funded_amount'].fillna('loan_amount')
+            df['funded_amount']=pd.to_numeric(df['funded_amount'],errors='coerce')
+            return df
+    @staticmethod
     def convert_to_integer(df,column):
         column=df['term']
         for column in df:
             df['term']=df['term'].fillna('36 months')
             df['term']=df['term'].str.extract('(\d+)')
-            df['term']=df['term'].astype(int)
+            df['term']=pd.to_numeric(df['term'],errors='coerce')
             return df
+
     
 DataTransform=DataTransform()
+Transform=DataTransform.conv_to_integer(df,'funded_amount')
 Transform=DataTransform.convert_to_integer(df,'term')
 Transform=DataTransform.modeval(df,'int_rate')
 
