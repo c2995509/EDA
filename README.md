@@ -63,3 +63,26 @@ Unfortunately the fault is still there with the training manual
 ## *Loan Payment Review*
 The data set was new to me and industry terminology was used, so understanding what the loan data represented took a bit of time.
 A python file was create and the following code was used and called in relevant sections of the notebook, to transfer the data, etc so the data frame could be analysed
+### Software Requirements
+Import the following software
+ - pandas
+ - numpy
+ - matplotlib.pyplot
+ - seaborn
+ - scipy
+
+Also it is adviseble to include pd.set_option('display.max_columns', None), as part of the set up.
+As previously using the original data table extracted from AWS RDS, a data quality check is required especially covering null values.
+Once a list of Null values table is produced, the next step is to find any patterns between other columns and populate the null values with actual.
+After the null values issue has been addressed the next stage is to convert the term column to a numerical data type by removing the text "months" for the column text values. This has been doen by calling a function previously programmed into a python file.
+
+Once the data quality and data types have been corrected. The next stage is to start to analysis the loan data.
+ - What type of loans being reported. In this case the loan data referes to front loaded loans, for customers who mainly consolidate existing debts 
+ - Outstanding balance of all existing loans (ignore fully paid loans
+ - What is the remaining percentage is the balance
+ - How much of the loans will be paid off after another 6 months
+ - Outstanding balance & percentage after 6 months
+ - Which group are likely to default
+ From what the data shows the group that have a graade 'C' seeme to be more likely to default in repaying the loan back, and having the laon disharged. Also Grae C category are generally in rented accommodation.
+
+ - 
