@@ -31,3 +31,17 @@ The table is then converted into a csv type file and a copy is made on the local
 The data review was mainly been done in notebook. The reason for using notebook instead of a python file.
 Is simply easier to review all graphical illustration compared to using the terminal. The only elements where python file was used
 to open up the csv file, convert relevant elements and change data types within the data Table
+When reviewing the data quality of the data frame, as review found certain columns had over 20% null values, Each of these columns where
+reviewed for the remining content and found the information was not necessary. Therefore those columns where deleted
+The action where recorded in the file data analyse ipynb.
+Also with the aid of graphical illustration to find out if the data had any skewed data, and where apprioprate redistrute the data, 
+so  more balance information data set is made.
+
+## Problems discovered
+As I am new to pyhton some of the training material supplied was extreemely long, and never went into the coding details, and how to create
+visual element, which is very frustrating, it's like training someone to build a house and showing what the elements are but not explaining how they go together.
+Unfortunately the fault is still there with the training manual
+
+## *Loan Payment Review*
+The data set was new to me and industry terminology was used, so understanding what the loan data represented took a bit of time.
+
