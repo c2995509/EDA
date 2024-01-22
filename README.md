@@ -21,44 +21,13 @@ Open VSC and select create new file. Type in "EDA.yaml" (yaml is the file extens
  - RDS_DATABASE: *************
  - RDS_PORT: ***********
 ## Extract Data using YAML
-import yaml
-import psycopg2
-import pandas as pd
-from sqlalchemy import create_engine
+Open and run the python file db_utilis.py file and run it. MAking sure the environemntal settings are correct.
+The code will first open th yaml file and using a for loop extract each elements and population a dictionary list, that contains the relevant information
+AWS requires. 
+The next process of the code is to extract the data from the rDS database. In this case was a table.
+The table is then converted into a csv type file and a copy is made on the local drive
 
-#credentials_details()
-class RDSDatabaseConnector:
-    def __init__(self):
-        pass
-         
-    def credentials_details(self):
-        with open ('c:/Users/alanw/AI_CORE_FOLDER/Finance_project/credentials.yaml','r') as credentials:
-            connenction_details= yaml.safe_load(credentials)
-        return connenction_details
-
-    def create_connection(self,connection_details):
-        #set variables from connection details previous function
-        database=connection_details['RDS_DATABASE']
-        user=connection_details['RDS_USER']
-        password=connection_details['RDS_PASSWORD']
-        host=connection_details['RDS_HOST']
-        port=connection_details['RDS_PORT']
-        intro='postgresql+psycopg2://'
-        #Create connection to AWS RDS server
-        engine = create_engine(f'{intro}{user}:{password}@{host}:{port}/{database}')
-        #Extract SQL table called 'loan_project' from database
-        df=pd.read_sql_table("loan_payments",engine)
-        print('connection successful')
-        #Return SQL table into a data frame
-        return df
-        #engine.close()
-        #cursor.close()
-
-   
-#Calling Class
-aws_data=RDSDatabaseConnector()
-conn=aws_data.credentials_details() 
-#Defining df with function variable
-df=aws_data.create_connection(conn)
-#publish dataframe into a CSV file         
-df.to_csv('C:/Users/alanw/AI_CORE_FOLDER/Finance_project/loan_payments.csv',index = False)
+## Data Quality Review
+The data review was mainly been done in notebook. The reason for using notebook instead of a python file.
+Is simply easier to review all graphical illustration compared to using the terminal. The only elements where python file was used
+to open up the csv file, convert relevant elements and change data types within the data Table
